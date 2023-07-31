@@ -1,0 +1,191 @@
+body{
+  background-color: #969696e3;
+}
+/* Start NavBar Section */
+.navbar{
+  background-color: #f73a4c;
+}
+.navbar .brand a{
+  font-family: 'Pacifico', cursive;
+  font-size: 35px;
+  color:#fff;
+  text-decoration: none;
+}
+/* End NavBar Section */
+
+/* Start Movie List Section */
+.movieCard .card{
+  position:relative;
+  overflow: hidden;
+  border:1px solid #f73a4c;
+  box-shadow:0px 0px 4px 4px rgb(247 58 76 / 50%)
+}
+.movieCard .card .rate{
+  position: absolute;
+  top: -68px;
+  left: -20px;
+  width: 67px;
+  height: 170px;
+  background-color: #f73a4c;
+  color:#fff;
+  z-index: 9999;
+  transform: skewX(131deg);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.movieCard .card .rate span{
+  transform: skewX(230deg);
+    font-weight: bold;
+    font-size: 20px;
+}
+.movieCard .overlay{
+  background-color: rgba(0, 0,0,.6);
+  position:absolute;
+  top:120%;
+  bottom:0;
+  left:0;
+  right:0;
+  color:#fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.movieCard .card:hover .overlay{
+  top:0;
+  transition: top 1s ease-in-out;
+}
+.movieCard .card .img-card{
+transition: transform .7s ease-in-out;
+}
+.movieCard .card:hover .img-card{
+transform: scale(1.2);
+}
+.movieCard .card-title{
+  position: relative;
+  left: 150%;
+}
+.movieCard .card:hover .card-title{
+  left: 0;
+  transition:left 1s ease-in-out 1s 
+}
+.movieCard .movie-type-list{
+  position:relative;
+  right:120%;
+}
+.movieCard .card:hover .movie-type-list{
+  right:0;
+  transition:right 1s ease-in-out 1.5s
+
+}
+.movieCard .movie-type{
+    background-color: #f73a4c;
+    border-radius: 5px;
+    padding: 3px ;
+    margin: 3px;
+}
+.movieCard .card-text{
+  position:relative;
+  right:150%;
+  font-size: 18px;
+  margin-top:10px
+}
+.movieCard .card:hover .card-text{
+  right:0;
+transition:right 1s ease-in-out 1s 
+
+}
+/* End Movie List Section */
+/* Start Footer Section */
+footer{
+  background-color: #f73a4c;
+  color:#fff;
+  text-align:center;
+}
+footer p{
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: 500;
+  margin: 0 !important;
+}
+footer p span{
+  font-size: 1.3rem;
+  color:#000;
+  font-weight: bold;
+}
+/* End Footer Section */
+
+/* Start Details Section */
+.details{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height:85vh;
+  position: relative;
+}
+.details .overlay{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:rgba(0, 0,0,.6);
+}
+.details .caption{
+  color:#fff;
+}
+.details .image img{
+  border-radius: 10px;
+  height: 400px !important;
+
+}
+.buttons a{
+  text-decoration: none;
+  color:#fff
+}
+@media screen and (max-width:992px){
+  .details .image img{
+    height: 200px !important;
+  
+  }
+}
+/* End Details Section */
+/* Start Pagination Section */
+
+.pagination .active .page-link,
+.pagination .next-link,
+.pagination .prev-link{
+  background-color: #f73a4c !important;
+  border: 1px solid #f73a4c !important;
+  color:#fff !important;
+}
+.pagination .page-link{
+color: #969696e3
+}
+.pagination .page-link:hover{
+  background-color: #f73a4c !important;
+  border: 1px solid #f73a4c ;
+  color:#fff
+  }
+  .pagination .page-link:focus{
+    box-shadow: none;
+    }
+/* End Pagination Section */
+/* Start Spinner Section  */
+.spinner{
+  position: absolute;
+  background-color: #f73a4c;
+  z-index: 99999999;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color:#fff
+}
+/* End Spinner Section */
