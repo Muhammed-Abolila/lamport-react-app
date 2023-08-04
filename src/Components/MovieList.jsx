@@ -1,11 +1,10 @@
 import MovieCard from "./MovieCard";
 import Paginate from "./Paginate";
-const MovieList=({Data,paginationPage ,PagesCount})=>{
-    
+const MovieList=()=>{
     return(
         <div>
-            <MovieCard Data={Data}/>
-            <Paginate paginationPage={paginationPage} PagesCount={PagesCount}/>
+            <MovieCard/>
+            <Paginate/>
         </div>
     );
 };

@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactPaginate from "react-paginate"
-const Paginate = ({paginationPage,PagesCount}) => {
+import { useDispatch, useSelector } from 'react-redux'
+import { paginationPage } from '../Redux/Actions/getAllMovies';
+const Paginate = () => {
+  let pageCount=useSelector((state)=>state.moviesReducer.pageCount);
+  let dispatch=useDispatch()
     function handlePageClick(value){
-        paginationPage(value.selected+1);
-        console.log(value);
-    }
+      dispatch(paginationPage(value.selected+1));
+    };
   return (
     <ReactPaginate
         breakLabel="..."
@@ -12,7 +15,7 @@ const Paginate = ({paginationPage,PagesCount}) => {
         onPageChange={handlePageClick}
         marginPagesDisplayed={2}
         pageRangeDisplayed={1}
-        pageCount={PagesCount<=500?PagesCount:500}
+        pageCount={pageCount<=500?pageCount:500}
         previousLabel="previous"
         containerClassName='pagination justify-content-center'
         nextClassName='page-item'
@@ -26,6 +29,5 @@ const Paginate = ({paginationPage,PagesCount}) => {
         activeClassName='active'
       />
   )
-}
-
+};
 export default Paginate

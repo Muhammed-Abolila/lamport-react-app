@@ -1,12 +1,22 @@
+import { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
-import {Link} from "react-router-dom"
-const MovieCard=({Data})=>{             
+import { useDispatch, useSelector } from 'react-redux';
+import {Link} from "react-router-dom";
+import { getAllMovies } from "../Redux/Actions/getAllMovies";
+const MovieCard=()=>{ 
+    let dispatch=useDispatch();
+    useEffect(
+        ()=>{
+          dispatch(getAllMovies())
+        }
+        ,[]);
+    let moviesData=useSelector((state)=>state.moviesReducer.movies);           
     return(
         <section className="movieCard my-5">
             <div className="container">
                 <div className="row justify-content-evenly">
-                    {Data.length>=1?(
-                        Data.map((ele,index)=>{
+                    {moviesData.length>=1?(
+                        moviesData.map((ele,index)=>{
                             return(
                                 <div key={index} className="col-lg-3 col-md-4 col-6 mb-4">
                                     <Link to={`/movie/${ele.id}`}>

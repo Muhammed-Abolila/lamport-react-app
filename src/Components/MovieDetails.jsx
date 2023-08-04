@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import Spinner from './Spinner';
+import { getMovieDetails } from '../Redux/Actions/getAllMovies';
 const MovieDetails = () => {
-  let [DataById,setDataById]=useState([])
-  let idParam=useParams();
-  async function fetchDataById(){
-    let response=await fetch(`https://api.themoviedb.org/3/movie/${idParam.id}?api_key=44f29529c8bf03d698c2c52509a2607f&append_to_response=videos,reviews,similar,credits`);
-    let data = await response.json();
-    setDataById( data);
-}
-useEffect(
-  ()=>{
-    fetchDataById()
-  }
-  ,[]);
+
+
+//   let [DataById,setDataById]=useState([])
+//   let idParam=useParams();
+//   async function fetchDataById(){
+//     let response=await fetch(`https://api.themoviedb.org/3/movie/${idParam.id}?api_key=44f29529c8bf03d698c2c52509a2607f&append_to_response=videos,reviews,similar,credits`);
+//     let data = await response.json();
+//     setDataById( data);
+// };
+// useEffect(
+//   ()=>{
+//     fetchDataById()
+//   }
+//   ,[]);
+
+let idParam=useParams();
+let dispatch=useDispatch()
+useEffect(()=>{
+  dispatch(getMovieDetails(idParam.id))
+},[])
+let DataById=useSelector((state)=>state.movieByIdReducer.movie);
   return ( 
       <div>
         {DataById?
@@ -51,9 +61,8 @@ useEffect(
           </div>
           </div>
         )
-        :<Spinner/>}
+        :<h2 className='vh-100 d-flex justify-content-center align-items-center'>No Data Yet</h2>}
       </div>
   )
-}
-
+};
 export default MovieDetails

@@ -1,8 +1,18 @@
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Navbar from 'react-bootstrap/Navbar';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-const NavBar=({searchMovie})=>{
+import { getAllMovies, getMoviesSearch } from '../Redux/Actions/getAllMovies';
+const NavBar=()=>{
+    let dispatch=useDispatch();
+    function searchMovie(word){
+        if(word==""){
+            dispatch(getAllMovies());
+        }else{
+            dispatch(getMoviesSearch(word));
+        } ;   
+    };
     return(
         <Navbar>
             <Container>
